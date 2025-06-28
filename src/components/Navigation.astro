@@ -26,7 +26,7 @@ const PAGES = [
     {
       PAGES.map(({ title, href }) => (
         <li class="relative">
-          <a class={`peer z-10 p-0.5 border-0 transition-all ease-in-out duration-15 text-black relative decoration-0 no-underline focus:outline-2 focus:outline-red-400 focus:outline-offset-4 active:bg-gray-100 active:border-b-red-400 active:font-bold`} href={href}>{title}
+          <a class={`peer z-10 p-0.5 border-0 transition-all ease-in-out duration-15 text-black relative decoration-0 no-underline focus:outline-2 focus:outline-red-400 dark:focus:outline-red-300 focus:outline-offset-4 active:bg-gray-100 active:border-b-red-400 dark:active:border-b-red-300 active:font-bold`} href={href}>{title}
           </a>
           <span class="bottom-2 absolute z-0 block h-[6px] w-full transition-all duration-300 ease-in-out peer-focus:w-full peer-focus:h-3/4 peer-hover:h-3/4 peer-hover:w-full bg-linear-90 from-red-gradient to-purple-gradient"></span>
         </li>

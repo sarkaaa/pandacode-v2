@@ -1,11 +1,11 @@
 ---
-import Navigation from '../components/Navigation.astro';
+import Navigation from '../components/Navigation.tsx';
 import SkipLink from './SkipLink.astro';
 ---
 
 <header class="md:w-2xl lg:w-3xl mx-auto relative">
   <SkipLink />
   <div class="flex justify-center">
-    <Navigation />
+    <Navigation client:load />
   </div>
 </header>

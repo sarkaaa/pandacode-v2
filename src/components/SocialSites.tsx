@@ -32,7 +32,7 @@ export default function SocialSites() {
   return (
     <>
       {SOCIAL_SITES.map(({ name, url, icon }) => (
-        <a href={url} target="_blank" className="relative w-[24px] h-[24px] focus:outline-red-400 focus:outline-2 focus:outline-offset-2">
+        <a href={url} target="_blank" className="relative w-[24px] h-[24px] focus:outline-red-400 dark:focus:outline-red-300 focus:outline-2 focus:outline-offset-2">
           <span className="sr-only">
             {name === "Email"
               ? "Write me an email"

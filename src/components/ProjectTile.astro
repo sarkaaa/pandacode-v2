@@ -7,6 +7,7 @@ interface Props {
   labels: string[];
   link: string;
   index: number;
+  key?: string | number;
 }
 
 const { name, description, labels, link, index } = Astro.props;
@@ -22,7 +23,7 @@ const bgVariants = [
   class={cx(
     "relative outline-transparent hover:[&_.blog-tile]:outline-1 focus:[&_.blog-tile]:outline-1 hover:[&_.blog-tile]:outline-black-400 focus:[&_.blog-tile]:outline-black-400 focus:outline-offset-[9px] inset-shadow-none text-black flex-1 bg-linear-170 after:hidden hover:after:hidden focus:after:hidden",
     "[&_.blog-tile-gradient]:transform-3d [&_.blog-tile-gradient]:translate-z-[5px] [&_.blog-tile-gradient]:translate-x-[5px] [&_.blog-tile-gradient]:translate-y-[5px]",
-    "focus:outline-offset-[7px] focus:outline-2 focus:outline-red-400", 
+    "focus:outline-offset-[7px] focus:outline-2 focus:outline-red-400 dark:focus:outline-red-300", 
     "hover:from-transparent hover:to-transparent hover:[&_.blog-tile-gradient]:transform-3d hover:[&_.blog-tile-gradient]:translate-z-[5px] hover:[&_.blog-tile-gradient]:translate-x-[5px] hover:[&_.blog-tile-gradient]:translate-y-[5px] hover:[&_.blog-tile]:bg-white",
     "focus:from-transparent focus:to-transparent focus:[&_.blog-tile-gradient]:transform-3d focus:[&_.blog-tile-gradient]:translate-z-[5px] focus:[&_.blog-tile-gradient]:translate-x-[5px] focus:[&_.blog-tile-gradient]:translate-y-[5px] focus:[&_.blog-tile]:bg-white",
   )}
@@ -30,7 +31,7 @@ const bgVariants = [
 >
   <div class="blog-tile bg-primary py-10 relative z-10 flex flex-1 justify-center gap-5">
     <div class="p-4">
-      <h3 class="text-center text-2xl group-focus:underline">{name}</h3>
+      <h3 class="text-center text-2xl group-focus:underline text-black-400">{name}</h3>
       <div class="flex gap-2 justify-center items-center"></div>
       <div class="flex justify-center flex-col gap-2 items-center">
         <span>{description}</span>

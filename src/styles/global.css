@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-gray-100: #F0F0F0;
   --color-gray-200: #E0E0E0;
   --color-blue-100: #BFE8EC;
   --color-blue-400: #0C9CAD;
   --color-blue-700: #085F68;
+  --color-red-300: #ff91a9;
   --color-red-400: #C84C67;
   --color-red-700: #9E1579;
   --color-black-400: #1E1E1E;
@@ -18,7 +21,10 @@
   --color-purple-gradient: #DEBDFF;
   --color-light-purple-gradient: #aba4e9;
   --color-light-blue-gradient: #bdf3fb;
-
+  --color-dark-purple-gradient: #511985;
+  --color-dark-blue-gradient: #064055;
+  --color-dark: #222029;
+  --color-light: #F7F7F7;
   --font-body: "Lato", "serif";
   --font-secondary: "Nunito", "serif";
   --font-courier: "Courier Prime", sans-serif; 
@@ -33,6 +39,7 @@
 
 @layer base {
   body {
+    @apply dark:bg-dark dark:text-light;
     font-family: var(--font-body);
     color: var(--color-black-700);
   }
@@ -43,12 +50,12 @@
   h4,
   h5,
   h6 {
+    @apply dark:text-light;
     font-family: var(--font-secondary);
     font-weight: 700 !important;
     line-height: 2;
     margin-bottom: 1rem;
   }
-
   h1 {
     @apply text-4xl;
   }
@@ -61,13 +68,17 @@
     @apply text-2xl;
   }
 
+  p {
+    @apply dark:text-white;
+  }
+
   button:focus,
   a:focus {
-    @apply outline-red-400 outline-2 outline-offset-2 rounded-xs;
+    @apply outline-red-400 dark:outline-red-300 outline-2 outline-offset-2 rounded-xs;
   }
 
   main a {
-    @apply relative font-medium;
+    @apply relative font-medium dark:text-light;
   }
 
   main a:after {
