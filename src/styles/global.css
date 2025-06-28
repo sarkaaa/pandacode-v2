@@ -82,13 +82,13 @@
   }
 
   main a:after {
-    @apply absolute h-[3px] bottom-0 left-0 right-0 transition-all duration-300 ease-in-out bg-linear-90 from-blue-gradient to-green-gradient z-[-1];
+    @apply absolute h-[3px] bottom-[-2px] left-0 right-0 transition-all duration-300 ease-in-out bg-linear-90 from-blue-gradient to-green-gradient z-[-1];
     content: ' ';
   }
 
   main a:hover:after,
   main a:focus:after {
-    @apply duration-150 bottom-[-3px] from-red-gradient to-purple-gradient;
+    @apply duration-150 bottom-[-4px] from-red-gradient to-purple-gradient;
   }
 
   section {
