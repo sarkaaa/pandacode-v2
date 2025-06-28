@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-gray-100: #F0F0F0;
+  --color-gray-200: #E0E0E0;
+  --color-blue-100: #BFE8EC;
+  --color-blue-400: #0C9CAD;
+  --color-blue-700: #085F68;
+  --color-red-400: #C84C67;
+  --color-red-700: #9E1579;
+  --color-black-400: #1E1E1E;
+  --color-black-700: #222;
+  --color-yellow-100: #FFFA9E;
+  --color-blue-gradient: #BDE4FB;
+  --color-green-gradient: #A4E9A9;
+  --color-red-gradient: #FFB8B9;
+  --color-purple-gradient: #DEBDFF;
+  --color-light-purple-gradient: #aba4e9;
+  --color-light-blue-gradient: #bdf3fb;
+
+  --font-body: "Lato", "serif";
+  --font-secondary: "Nunito", "serif";
+  --font-courier: "Courier Prime", sans-serif; 
+
+  --inset-shadow-lg: inset 0 -5px 0px var(--color-blue-100);
+  --inset-shadow-lg-active: inset 0 -5px 0px var(--color-red-400);
+  --inset-shadow-gray: inset 0 -5px 0px var(--color-gray-100);
+  --inset-shadow-blue: inset 0 -5px 0px var(--color-blue-400);
+  --inset-shadow-none: inset 0 0 0 transparent;
+  --transform-bg: transition 0.4s ease-in-out;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+    color: var(--color-black-700);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-secondary);
+    font-weight: 700 !important;
+    line-height: 2;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    @apply text-4xl;
+  }
+
+  h2 {
+    @apply text-3xl;
+  }
+
+  h3 {
+    @apply text-2xl;
+  }
+
+  button:focus,
+  a:focus {
+    @apply outline-red-400 outline-2 outline-offset-2 rounded-xs;
+  }
+
+  main a {
+    @apply relative font-medium;
+  }
+
+  main a:after {
+    @apply absolute h-[3px] bottom-0 left-0 right-0 transition-all duration-300 ease-in-out bg-linear-90 from-blue-gradient to-green-gradient z-[-1];
+    content: ' ';
+  }
+
+  main a:hover:after,
+  main a:focus:after {
+    @apply duration-150 bottom-[-3px] from-red-gradient to-purple-gradient;
+  }
+
+  section {
+    @apply mb-16;
+  }
+}

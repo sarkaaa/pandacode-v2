@@ -1,0 +1,33 @@
+---
+import ProjectTile from '../components/ProjectTile.astro';
+import Layout from '../layouts/Layout.astro';
+
+export const PROJECTS = [
+  {
+    name: 'PaperPrint Calendar',
+    description: 'Print your weekly calendar.',
+    labels: ['NextJS', 'Playwright', 'Jest', 'TailwindCSS'],
+    link: '#',
+  },
+  {
+    name: 'Beskydské túry',
+    description: 'Go for a hike!',
+    labels: ['GatsbyJS', 'Strapi', 'StyledCSS', 'Cypress'],
+    link: '#',
+  },
+];
+
+---
+
+<Layout>
+  <section id="projects">
+    <h1>Projects</h1>
+    <div class="flex flex-wrap gap-3">
+      {
+        PROJECTS.map((project, index) => (
+          <ProjectTile index={index} {...project} />
+        ))
+      }
+    </div>
+  </section>
+</Layout>

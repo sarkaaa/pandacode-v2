@@ -1,0 +1,106 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SocialSites from "../components/SocialSites";
+import ShortTile from "../components/ShortTile.astro";
+import { SHORTS } from "./shorts.astro";
+import { BLOG } from "./blog.astro";
+import { PROJECTS } from "./projects.astro";
+import BlogTile from "../components/BlogTile.astro";
+import ProjectTile from "../components/ProjectTile.astro";
+
+
+const LABELS = ["#frontend", "#accessibility"];
+---
+
+<Layout>
+  <section id="hero">
+    <h1>
+      <span class="font-roboto text-5xl text-blue-400">Panda{`<`}<span class="text-red-400">code</span>{`/>`}</span>
+      <span class="sr-only">Welcome on Pandacode.cz</span>
+    </h1>
+		<div class="flex gap-4">
+			<div class="flex-3">
+				<p>
+					Welcome to my website! 🚀 This is my personal space on the web, a place
+					where I share bits of my journey in web development. Nothing fancy—just a
+					place for creativity and learning. Take a look around and enjoy!
+				</p>
+			</div>
+			<div class="flex-2">
+				pandacode logo
+			</div>
+		</div>
+  </section>
+  <section id="about-me">
+    <h2>About me</h2>
+    <div class="flex gap-4 items-baseline">
+      <div class="flex-2">photo</div>
+      <div class="flex-3">
+        <div>
+          <p>
+            Hi, I'm <strong>Jan</strong>, a <a href="#">frontend developer</a> based
+            in the Czech Republic. I'm passionate about web development, accessibility,
+            and design. I love creating beautiful and accessible websites that are
+            fast and user-friendly. I'm always learning and experimenting with new
+            technologies to improve my skills and stay up-to-date with the latest
+            trends in web development.
+          </p>
+					<div class="flex gap-2 mt-4">
+						{
+							LABELS.map((label) => (
+								<span class="bg-[#f8f8f8] rounded-md px-2 py-1 text-[#048493] font-medium">
+									{label}
+								</span>
+							))
+						}
+					</div>
+        </div>
+        <div class="flex gap-4 mt-6">
+          <SocialSites />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="latest-activity">
+    <h2>Latest activity</h2>
+		<div class="mb-12">
+      <h3>Projects</h3>
+      <div>
+        <div class="flex flex-wrap gap-3">
+					{
+						PROJECTS.map((project, index) => (
+							<ProjectTile index={index} key={project.name} {...project} />
+						))
+					}
+				</div>
+        <!-- <div class="mt-6 flex justify-end"><a href="/projects">Check more projects</a></div> -->
+      </div>
+    </div>
+    <div class="mb-12">
+      <h3>Blog</h3>
+      <div>
+        <div class="flex flex-wrap gap-3">
+					{
+						BLOG.map(post => (
+							<BlogTile {...post} />
+						))
+					}
+				</div>
+        <div class="mt-6 flex justify-end"><a href="/blog">Check more blogposts</a></div>
+      </div>
+    </div>
+    <div class="mb-12">
+      <h3>Shorts</h3>
+      <div class="block">
+        <div class="flex flex-wrap gap-4">
+					{
+						SHORTS.map(short => (
+							<ShortTile {...short} />
+						))
+					}
+				</div>
+        <div class="mt-6 flex justify-end"><a href="/shorts">Check more shorts</a></div>
+      </div>
+    </div>
+  </section>
+</Layout>

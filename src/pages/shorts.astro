@@ -1,0 +1,30 @@
+---
+import ShortTile from '../components/ShortTile.astro';
+import Layout from '../layouts/Layout.astro';
+
+export const SHORTS = [
+  {
+    title: 'PaperPrint Calendar',
+    description: 'Anim amet elit eu anim nostrud duis officia.Anim amet elit eu anim nostrud duis officia. Anim amet elit eu anim nostrud duis officia.Anim amet elit eu. Anim amet elit eu anim nostrud duis officia.Anim amet elit eu.',
+    link: '/shorts',
+  },
+  {
+    title: 'PaperPrint Calendar',
+    description: 'Anim amet elit eu anim nostrud duis officia.Anim amet elit eu anim nostrud duis officia. Anim amet elit eu anim nostrud duis officia.Anim amet elit eu. Anim amet elit eu anim nostrud duis officia.Anim amet elit eu.',
+    link: '/shorts',
+  },
+];
+---
+
+<Layout>
+  <section id="shorts">
+    <h1>Shorts</h1>
+    <div class="flex flex-wrap gap-3">
+      {
+        SHORTS.map(short => (
+          <ShortTile {...short} />
+        ))
+      }
+    </div>
+  </section>
+</Layout>

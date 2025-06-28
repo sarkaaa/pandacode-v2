@@ -1,0 +1,31 @@
+---
+import BlogTile from '../components/BlogTile.astro';
+import Layout from '../layouts/Layout.astro';
+
+export const BLOG = [
+  {
+    title: 'Notion — vše organizovaně na jednom místě',
+    link: 'https://seznam.cz',
+    imgUrl: 'https://cdn.thewirecutter.com/wp-content/media/2021/03/adopting-a-cat-2048px-06052-2x1-1.jpg',
+  },
+  {
+    title: 'CSS tahák — pseudoelementy, kombinátory a atributové selektory',
+    link: 'https://seznam.cz',
+    imgUrl: 'https://cdn.thewirecutter.com/wp-content/media/2021/03/adopting-a-cat-2048px-06052-2x1-1.jpg',
+  },
+];
+
+---
+
+<Layout>
+  <section id="blog">
+    <h1>Blog</h1>
+    <div class="flex flex-wrap gap-3">
+      {
+        BLOG.map(post => (
+          <BlogTile {...post} />
+        ))
+      }
+    </div>
+  </section>
+</Layout>
