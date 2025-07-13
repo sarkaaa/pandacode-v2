@@ -7,13 +7,13 @@ export const PROJECTS = [
     name: 'PaperPrint Calendar',
     description: 'Print your weekly calendar.',
     labels: ['NextJS', 'Playwright', 'Jest', 'TailwindCSS'],
-    link: '#',
+    link: '/projects/beskydske-tury',
   },
   {
     name: 'Beskydské túry',
     description: 'Go for a hike!',
     labels: ['GatsbyJS', 'Strapi', 'StyledCSS', 'Cypress'],
-    link: '#',
+    link: '/projects/beskydske-tury',
   },
 ];
 
@@ -22,7 +22,7 @@ export const PROJECTS = [
 <Layout>
   <section id="projects">
     <h1>Projects</h1>
-    <div class="flex flex-wrap gap-3">
+    <div class="flex flex-wrap gap-3 flex-col sm:flex-row">
       {
         PROJECTS.map((project, index) => (
           <ProjectTile index={index} {...project} />

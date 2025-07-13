@@ -84,11 +84,11 @@ export default function Navigation() {
   return (
     <nav
       className={clsx(
-        "bg-gray-100/25 dark:bg-black/25 py-3 px-10 rounded-md mx-auto backdrop-blur-xs fixed z-20 transition-all",
+        "bg-gray-100/25 dark:bg-black/25 py-3 px-10 rounded-md mx-auto backdrop-blur-xs sm:fixed z-20 transition-all",
         isScrolled ? "mt-5" : "mt-10",
       )}
       >
-      <ul className="flex gap-5 justify-center">
+      <ul className="flex flex-wrap gap-5 justify-start items-center sm:justify-center">
         {PAGES.map(({ title, href }) => (
           <li key={href} className="relative">
             <a 
@@ -97,7 +97,7 @@ export default function Navigation() {
             >
               {title}
             </a>
-            <span className="bottom-2 absolute z-0 block h-[6px] w-full transition-all duration-300 ease-in-out peer-focus:w-full peer-focus:h-3/4 peer-hover:h-3/4 peer-hover:w-full bg-linear-90 from-red-gradient to-purple-gradient dark:from-dark-blue-gradient dark:to-dark-purple-gradient"></span>
+            <span className="bottom-0 xs:bottom-2 absolute z-0 block h-[6px] w-full transition-all duration-300 ease-in-out peer-focus:w-full peer-focus:h-full peer-hover:h-full peer-hover:w-full bg-linear-90 from-red-gradient to-purple-gradient dark:from-dark-blue-gradient dark:to-dark-purple-gradient"></span>
           </li>
         ))}
         <li>

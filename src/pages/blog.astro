@@ -20,7 +20,7 @@ export const BLOG = [
 <Layout>
   <section id="blog">
     <h1>Blog</h1>
-    <div class="flex flex-wrap gap-3">
+    <div class="flex flex-wrap gap-4 md:gap-3 flex-col sm:flex-row">
       {
         BLOG.map(post => (
           <BlogTile {...post} />
