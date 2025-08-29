@@ -7,13 +7,15 @@ export const PROJECTS = [
     name: 'PaperPrint Calendar',
     description: 'Print your weekly calendar.',
     labels: ['NextJS', 'Playwright', 'Jest', 'TailwindCSS'],
-    link: '/projects/beskydske-tury',
+    // link: '/projects/beskydske-tury',
+    link: 'https://paperprint-calendar.vercel.app/',
   },
   {
     name: 'Beskydské túry',
     description: 'Go for a hike!',
     labels: ['GatsbyJS', 'Strapi', 'StyledCSS', 'Cypress'],
-    link: '/projects/beskydske-tury',
+    // link: '/projects/beskydske-tury',
+    link: 'https://beskydsketury.cz',
   },
 ];
 
@@ -22,10 +24,12 @@ export const PROJECTS = [
 <Layout>
   <section id="projects">
     <h1>Projects</h1>
-    <div class="flex flex-wrap gap-3 flex-col sm:flex-row">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       {
         PROJECTS.map((project, index) => (
-          <ProjectTile index={index} {...project} />
+          <Fragment key={project.name}>
+            <ProjectTile index={index} {...project} />
+          </Fragment>
         ))
       }
     </div>

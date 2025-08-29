@@ -3,13 +3,12 @@ import Layout from "../layouts/Layout.astro";
 import SocialSites from "../components/SocialSites";
 import ShortTile from "../components/ShortTile.astro";
 import { SHORTS } from "./shorts.astro";
-import { BLOG } from "./blog.astro";
 import { PROJECTS } from "./projects.astro";
-import BlogTile from "../components/BlogTile.astro";
 import ProjectTile from "../components/ProjectTile.astro";
+import BlogPosts from "../components/BlogPosts";
 
 
-const LABELS = ["#frontend", "#accessibility"];
+const LABELS = ["#frontend", "#accessibility", "#testing"];
 ---
 
 <Layout>
@@ -38,7 +37,7 @@ const LABELS = ["#frontend", "#accessibility"];
       <div class="flex-3">
         <div>
           <p>
-            Hi, I'm <strong>Jan</strong>, a <a href="#">frontend developer</a> based
+            Hi, I'm <strong>Šárka</strong>, a <a href="#">frontend developer</a> based
             in the Czech Republic. I'm passionate about web development, accessibility,
             and design. I love creating beautiful and accessible websites that are
             fast and user-friendly. I'm always learning and experimenting with new
@@ -48,9 +47,11 @@ const LABELS = ["#frontend", "#accessibility"];
 					<div class="flex gap-2 mt-4">
 						{
 							LABELS.map((label) => (
-								<span class="bg-[#f8f8f8] rounded-md px-2 py-1 text-[#05157f] font-medium">
-									{label}
-								</span>
+                <Fragment key={label}>
+                  <span class="bg-[#f8f8f8] rounded-md px-2 py-1 text-[#05157f] font-medium">
+                    {label}
+                  </span>
+                </Fragment>
 							))
 						}
 					</div>
@@ -66,11 +67,13 @@ const LABELS = ["#frontend", "#accessibility"];
 		<div class="mb-12">
       <h3>Projects</h3>
       <div>
-        <div class="flex flex-wrap items-stretch gap-4 md:gap-3 flex-col sm:flex-row">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-4">
 					{
-						PROJECTS.map((project, index) => (
-							<ProjectTile index={index} key={project.name} {...project} />
-						))
+						PROJECTS.map((project, index) => {
+              if (index < 2) {
+                return <Fragment key={project.name}><ProjectTile index={index} {...project} /></Fragment>
+              }
+            })
 					}
 				</div>
         <!-- <div class="mt-6 flex justify-end"><a href="/projects">Check more projects</a></div> -->
@@ -79,12 +82,8 @@ const LABELS = ["#frontend", "#accessibility"];
     <div class="mb-12">
       <h3>Blog</h3>
       <div>
-        <div class="flex flex-wrap gap-4 md:gap-3 flex-col sm:flex-row">
-					{
-						BLOG.map(post => (
-							<BlogTile {...post} />
-						))
-					}
+        <div class="flex flex-wrap gap-4 md:gap-4 flex-col sm:flex-row">
+					<BlogPosts maxPosts={2} client:load />
 				</div>
         <div class="mt-6 flex justify-end"><a href="/blog">Check more blogposts</a></div>
       </div>
@@ -92,11 +91,13 @@ const LABELS = ["#frontend", "#accessibility"];
     <div class="mb-12">
       <h3>Shorts</h3>
       <div class="block">
-        <div class="flex flex-wrap gap-8 md:gap-4 flex-col md:flex-row">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-4">
 					{
-						SHORTS.map(short => (
-							<ShortTile {...short} />
-						))
+						SHORTS.map((short, index) => {
+              if (index < 2) {
+                return <Fragment key={short.title}><ShortTile {...short} /></Fragment>
+              }
+            })
 					}
 				</div>
         <div class="mt-6 flex justify-end"><a href="/shorts">Check more shorts</a></div>

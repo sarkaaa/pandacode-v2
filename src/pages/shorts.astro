@@ -19,10 +19,12 @@ export const SHORTS = [
 <Layout>
   <section id="shorts">
     <h1>Shorts</h1>
-    <div class="flex flex-wrap gap-6 md:gap-3 flex-col md:flex-row">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-4">
       {
-        SHORTS.map(short => (
-          <ShortTile {...short} />
+        SHORTS.map((short) => (
+          <Fragment key={short.title}>
+            <ShortTile {...short} />
+          </Fragment>
         ))
       }
     </div>

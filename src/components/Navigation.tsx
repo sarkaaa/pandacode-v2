@@ -92,7 +92,7 @@ export default function Navigation() {
         {PAGES.map(({ title, href }) => (
           <li key={href} className="relative">
             <a 
-              className="peer z-10 p-0.5 border-0 transition-all ease-in-out duration-15 text-black dark:text-light relative decoration-0 no-underline focus:outline-2 focus:outline-red-400 dark:focus:outline-red-300 focus:outline-offset-4 active:bg-gray-100 dark:active:bg-black/25 active:border-b-red-400 dark:active:border-b-red-300 active:font-bold" 
+              className="peer z-10 p-0.5 border-0 transition-all ease-in-out duration-15 text-black dark:text-light relative decoration-0 no-underline focus:outline-2 focus:outline-red-400 dark:focus:outline-red-300 focus:outline-offset-4 active:bg-gray-100 dark:active:bg-black/25 active:border-b-red-400 dark:active:border-b-red-300 active:font-semibold" 
               href={href}
             >
               {title}

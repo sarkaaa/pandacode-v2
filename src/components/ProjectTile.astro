@@ -7,7 +7,6 @@ interface Props {
   labels: string[];
   link: string;
   index: number;
-  key?: string | number;
 }
 
 const { name, description, labels, link, index } = Astro.props;
@@ -28,6 +27,8 @@ const bgVariants = [
     "focus:from-transparent focus:to-transparent focus:[&_.blog-tile-gradient]:transform-3d focus:[&_.blog-tile-gradient]:translate-z-[5px] focus:[&_.blog-tile-gradient]:translate-x-[5px] focus:[&_.blog-tile-gradient]:translate-y-[5px] focus:[&_.blog-tile]:bg-white",
   )}
   href={link}
+  target="_blank"
+  rel="noopener noreferrer"
 >
   <div class="blog-tile bg-primary py-10 relative z-10 flex flex-1 justify-center gap-5">
     <div class="p-4">
@@ -35,7 +36,7 @@ const bgVariants = [
       <div class="flex gap-2 justify-center items-center"></div>
       <div class="flex justify-center flex-col gap-2 items-center">
         <span>{description}</span>
-        <div class="flex flex-wrap justify-center gap-3 text-center font-semibold">
+        <div class="flex flex-wrap justify-center gap-4 text-center font-semibold">
           {labels.map((label) => <span>{label}</span>)}
         </div>
       </div>

@@ -11,11 +11,11 @@ const { title, description, link } = Astro.props;
 
 <div class="flex-1 group">
   <a href={link} class="hover:shadow-none shadow-none inset-shadow-none hover:inset-shadow-none focus:bg-transparent inline-block hover:bg-transparent focus:[&_.short-header-underline]:w-full after:hidden hover:after:hidden focus:after:hidden">
-    <div class="flex flex-col items-start">
-      <span class="flex flex-col text-xl text-black-400 dark:text-light">{title}
+    <div class="flex flex-col items-start mb-2">
+      <span class="flex flex-col text-xl  text-black-400 dark:text-light">{title}
         <span class="short-header-underline h-[4px] w-10 transition-all duration-300 ease-in-out group-focus:w-full group-hover:visible group-hover:w-full bg-linear-90 from-blue-gradient to-green-gradient"></span>
       </span>
     </div>
-    <p class="font-light text-black-400 line-clamp-3 dark:text-light">{description}</p>
+    <p class="font-light text-black-400 leading-relaxed line-clamp-3 dark:text-light">{description}</p>
   </a>
 </div>

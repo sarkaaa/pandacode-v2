@@ -1,5 +1,24 @@
-<footer class="md:w-2xl lg:w-3xl mx-auto">
-  <p>
-    Made with 🫶🏻 using <a href="https://astro.build" target="_blank">Astro</a>, <a href="https://lucide.dev" target="_blank">Netlify</a> and <a href="https://netlify.com" target="_blank">Lucide</a>.
-  </p>
+---
+import SocialSites from "./SocialSites";
+---
+
+<footer
+  class="flex align-baseline justify-between md:w-2xl lg:w-3xl mx-auto my-2"
+>
+  <div>
+    <p>
+      Made with 🫶🏻 using <a href="https://astro.build" target="_blank">Astro</a
+      >, <a href="https://netlify.com" target="_blank">Netlify</a> and <a
+        href="https://lucide.dev"
+        target="_blank">Lucide</a
+      >.
+    </p>
+  </div>
+  {
+    Astro.url.pathname !== "/" && (
+      <div class="flex gap-4">
+        <SocialSites />
+      </div>
+    )
+  }
 </footer>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -25,7 +25,8 @@
   --color-dark-blue-gradient: #064055;
   --color-dark: #222029;
   --color-light: #F7F7F7;
-  --font-body: "Lato", "serif";
+  --color-white': #eaeaea;
+  --font-body: "Open Sans", "serif";
   --font-secondary: "Nunito", "serif";
   --font-courier: "Courier Prime", sans-serif; 
 
@@ -69,7 +70,7 @@
   }
 
   p {
-    @apply dark:text-white;
+    @apply dark:text-white text-sm leading-loose mb-4;
   }
 
   button:focus,
@@ -77,17 +78,21 @@
     @apply outline-red-400 dark:outline-red-300 outline-2 outline-offset-2 rounded-xs;
   }
 
-  main a {
+  main a,
+  footer a {
     @apply relative font-medium dark:text-light;
   }
 
-  main a:after {
+  main a:after,
+  footer a:after {
     @apply absolute h-[3px] bottom-[-2px] left-0 right-0 transition-all duration-300 ease-in-out bg-linear-90 from-blue-gradient to-green-gradient z-[-1];
     content: ' ';
   }
 
   main a:hover:after,
-  main a:focus:after {
+  main a:focus:after,
+  footer a:hover:after,
+  footer a:focus:after {
     @apply duration-150 bottom-[-4px] from-red-gradient to-purple-gradient;
   }
 

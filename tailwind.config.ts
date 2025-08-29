@@ -12,6 +12,7 @@ const exports = {
         'red-gradient': '#FFB8B9',
         'purple-gradient': '#DEBDFF',
         'dark': '#222029',
+        'white': '#eaeaea',
       },
       border: {
         1: '1px',
