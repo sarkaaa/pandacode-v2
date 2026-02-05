@@ -18,7 +18,11 @@ const PAGES = [
   {
     title: "Shorts",
     href: "/shorts",
-  }
+  },
+  {
+    title: "Today I learned",
+    href: "/til",
+  },
 ];
 
 // Custom hook to track scroll position
@@ -43,7 +47,7 @@ function useScrolled(threshold: number = 50) {
 }
 
 export default function Navigation() {
-  const [theme, setTheme] = useState(typeof window !== 'undefined' ? localStorage.getItem("theme") : "light");
+  const [theme, setTheme] = useState("light");
   const isScrolled = useScrolled(75);
 
   useEffect(() => {
@@ -88,8 +92,8 @@ export default function Navigation() {
         isScrolled ? "mt-6 md:mt-5" : "mt-6 md:mt-10",
       )}
       >
-      <ul className="flex flex-wrap gap-5 justify-start items-center sm:justify-center">
-        {PAGES.map(({ title, href }) => (
+      <ul className="flex flex-wrap gap-5 justify-start items-center sm:justify-center list-none p-0 m-0">
+        {PAGES?.map(({ title, href }) => (
           <li key={href} className="relative">
             <a 
               className="peer z-10 p-0.5 border-0 motion-safe:transition-all motion-safe:ease-in-out motion-safe:duration-15 text-black dark:text-light relative decoration-0 no-underline focus:outline-2 focus:outline-red-400 dark:focus:outline-red-300 focus:outline-offset-4 active:bg-gray-100 dark:active:bg-black/25 active:border-b-red-400 dark:active:border-b-red-300 active:font-semibold" 
