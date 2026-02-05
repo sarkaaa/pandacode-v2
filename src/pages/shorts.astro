@@ -1,19 +1,7 @@
 ---
 import ShortTile from '../components/ShortTile.astro';
 import Layout from '../layouts/Layout.astro';
-
-export const SHORTS = [
-  {
-    title: 'PaperPrint Calendar',
-    description: 'Anim amet elit eu anim nostrud duis officia.Anim amet elit eu anim nostrud duis officia. Anim amet elit eu anim nostrud duis officia.Anim amet elit eu. Anim amet elit eu anim nostrud duis officia.Anim amet elit eu.',
-    link: '/shorts',
-  },
-  {
-    title: 'PaperPrint Calendar',
-    description: 'Anim amet elit eu anim nostrud duis officia.Anim amet elit eu anim nostrud duis officia. Anim amet elit eu anim nostrud duis officia.Anim amet elit eu. Anim amet elit eu anim nostrud duis officia.Anim amet elit eu.',
-    link: '/shorts',
-  },
-];
+const allShorts = Object.values(import.meta.glob('./shorts/*.md', { eager: true }));
 ---
 
 <Layout>
@@ -21,9 +9,9 @@ export const SHORTS = [
     <h1>Shorts</h1>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-4">
       {
-        SHORTS.map((short) => (
-          <Fragment key={short.title}>
-            <ShortTile {...short} />
+        allShorts?.map((short: any) => (
+          <Fragment key={short.frontmatter.title}>
+            <ShortTile url={short.url} {...short.frontmatter} />
           </Fragment>
         ))
       }

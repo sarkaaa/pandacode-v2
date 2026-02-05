@@ -5,11 +5,11 @@ interface Props {
   name: string;
   description: string;
   labels: string[];
-  link: string;
+  url: string;
   index: number;
 }
 
-const { name, description, labels, link, index } = Astro.props;
+const { name, description, labels, url, index } = Astro.props;
 
 const bgVariants = [
   "from-light-blue-gradient to-light-purple-gradient",
@@ -26,21 +26,21 @@ const bgVariants = [
     "hover:from-transparent hover:to-transparent hover:[&_.blog-tile-gradient]:transform-3d hover:[&_.blog-tile-gradient]:translate-z-[5px] hover:[&_.blog-tile-gradient]:translate-x-[5px] hover:[&_.blog-tile-gradient]:translate-y-[5px] hover:[&_.blog-tile]:bg-white",
     "focus:from-transparent focus:to-transparent focus:[&_.blog-tile-gradient]:transform-3d focus:[&_.blog-tile-gradient]:translate-z-[5px] focus:[&_.blog-tile-gradient]:translate-x-[5px] focus:[&_.blog-tile-gradient]:translate-y-[5px] focus:[&_.blog-tile]:bg-white",
   )}
-  href={link}
-  target="_blank"
-  rel="noopener noreferrer"
+  href={url}
+  target={url.includes('https://') ? '_blank' : '_self'}
+  rel={url.includes('https://') ? 'noopener noreferrer' : ''}
 >
-  <div class="blog-tile bg-primary py-10 relative z-10 flex flex-1 justify-center gap-5">
+  <div class="blog-tile bg-primary py-10 relative z-10 flex flex-1 justify-center gap-5 rounded-sm">
     <div class="p-4">
       <h3 class="text-center text-2xl group-focus:underline text-black-400">{name}</h3>
       <div class="flex gap-2 justify-center items-center"></div>
       <div class="flex justify-center flex-col gap-2 items-center">
         <span>{description}</span>
         <div class="flex flex-wrap justify-center gap-4 text-center font-semibold">
-          {labels.map((label) => <span>{label}</span>)}
+          {labels?.map((label) => <span>{label}</span>)}
         </div>
       </div>
     </div>
   </div>
-  <div class={cx("blog-tile-gradient absolute block top-0 bottom-0 left-0 right-0 bg-linear-170", bgVariants[index])}></div>
+  <div class={cx("blog-tile-gradient absolute block top-0 bottom-0 left-0 right-0 bg-linear-170 rounded-sm", bgVariants[index])}></div>
 </a>

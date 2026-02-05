@@ -23,7 +23,7 @@ const BlogPosts = ({ maxPosts = null }: { maxPosts?: number | null }) => {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-4">
-      {posts.map(({ guid, title, link, description }, index) => {
+      {posts?.map(({ guid, title, link, description }, index) => {
         if (maxPosts && index >= maxPosts) {
           return null;
         }

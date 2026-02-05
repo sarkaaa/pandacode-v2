@@ -31,7 +31,7 @@ const SOCIAL_SITES = [
 export default function SocialSites() {
   return (
     <>
-      {SOCIAL_SITES.map(({ name, url, icon }) => (
+      {SOCIAL_SITES?.map(({ name, url, icon }) => (
         <a key={name} href={url} target="_blank" className="relative w-[24px] h-[24px] focus:outline-red-400 dark:focus:outline-red-300 focus:outline-2 focus:outline-offset-2">
           <span className="sr-only">
             {name === "Email"

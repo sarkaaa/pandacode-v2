@@ -1,323 +1,326 @@
 ---
-import BlogTile from '../../components/BlogTile.astro';
-import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import Layout from "../../layouts/Layout.astro";
+import techStack from "../../images/projects/beskydske-tury/bt_techstack.png";
+import ruda from "../../images/projects/beskydske-tury/ruda.png";
+import bystrouska from "../../images/projects/beskydske-tury/bystrouska.png";
+import design from "../../images/projects/beskydske-tury/bt_design.png";
+import screens from "../../images/projects/beskydske-tury/screens.png";
 ---
 
 <Layout>
-  <section id="blog">
-    <h1>Beskydské túry</h1>
-    <h3>Obsah</h3>
-      <ol>
-        <li>
-          <a href="#obt">Co jsou Beskydské túry</a>
-        </li>
-        <li>
-          <a href="#persony">Persony</a>
-        </li>
-        <li>
-          <a href="#design">Design</a>
-        </li>
-        <li>
-          <a href="#implementace">Technické zpracování</a>
-        </li>
-        <li>
-          <a href="#ideas">Nápady pro další iterace</a>
-        </li>
-        <li>
-          <a href="#conclusion">Shrnutí</a>
-        </li>
-      </ol>
-      <h3>
-        <a name="obt">Co jsou Beskydské túry</a>
-      </h3>
+  <h2>Beskydské túry</h2>
+  <h3>Obsah</h3>
+  <ol>
+    <li>
+      <a href="#obt">Co jsou Beskydské túry</a>
+    </li>
+    <li>
+      <a href="#persony">Persony</a>
+    </li>
+    <li>
+      <a href="#design">Design</a>
+    </li>
+    <li>
+      <a href="#implementace">Technické zpracování</a>
+    </li>
+    <li>
+      <a href="#ideas">Nápady pro další iterace</a>
+    </li>
+    <li>
+      <a href="#conclusion">Shrnutí</a>
+    </li>
+  </ol>
+  <h3>
+    <a name="obt">Co jsou Beskydské túry</a>
+  </h3>
+  <p>
+    Beskydské túry je webová aplikace, jejíž princip je poměrně jednoduchý
+    (ikdyž realizace až tak jednodochá nebyla :)) - přehled vybraných tipů
+    pro turistické trasy a výlety v Beskydech. Každá trasa obsahuje základní
+    informace jako je délka trasy, stoupání, dostupnost trasy (auto, bus,
+    vlak), typ trasy (jestli se turista vrací na výchozí místo pro případ,
+    že jede autem nebo využívá veřejnou dopravu a nepotřebuje řešit,zda se
+    potřebuje vrátit na stejné místo). Každá trasa se zobrazuje v mapě od{" "}
+    <a href="https://mapy.cz" target="_blank">
+      Mapy.cz
+    </a>{" "}
+    a uživatel si tak pomocí odkazu může tuto trasu rozkliknout v novém okně
+    přímo v této aplikaci.
+  </p>
+  <Image src={techStack} alt="Beskydské túry" />
+  <p>
+    Za vytvořením aplikace stálo zejména to, že jsem si chtěla vytvořit svůj
+    ,,side project”, který bude komplexnější, co se týče použitých
+    technologií, a na kterém se zároveň naučím i něco nového. Delší dobu
+    jsem přemýšlela o čem by, aplikace měla být, nechtěla jsem aby to byla
+    nějaká hloupost, která skončí v šuplíku a nakonec jsem dostala tento
+    nápad.
+  </p>
+  <h3>
+    <a name="persony">Persony</a>
+  </h3>
+  <p>
+    Ve fázi příprav jsem si vytvořila dvě imaginární persony, které mají
+    potenciálně zastupovat nejširší skupiny návštěvníků webu.
+  </p>
+  <div class="flex flex-col md:flex-row gap-4">
+    <div class="flex flex-col items-center">
+      <Image src={ruda} alt="Ruda Jelínek" />
+      <h4>Ruda Jelínek</h4>
       <p>
-        Beskydské túry je webová aplikace, jejíž princip je poměrně jednoduchý
-        (ikdyž realizace až tak jednodochá nebyla :)) - přehled vybraných tipů
-        pro turistické trasy a výlety v Beskydech. Každá trasa obsahuje základní
-        informace jako je délka trasy, stoupání, dostupnost trasy (auto, bus,
-        vlak), typ trasy (jestli se turista vrací na výchozí místo pro případ,
-        že jede autem nebo využívá veřejnou dopravu a nepotřebuje řešit,zda se
-        potřebuje vrátit na stejné místo). Každá trasa se zobrazuje v mapě od{" "}
-        <a href="https://mapy.cz" target="_blank">
-          Mapy.cz
-        </a>{" "}
-        a uživatel si tak pomocí odkazu může tuto trasu rozkliknout v novém okně
-        přímo v této aplikaci.
+        Ruda je mladý zkušený turista, který v Beskydech tráví skoro každý
+        víkend a preferuje delší a náročnější trasy. Nebaví ho turisticky
+        vytížená místa a na výlety jezdí veřejnou dopravou. Rád doma kuchtí
+        a většinou si na výlet připraví něco dobrého (nejčastěji pečené
+        kaštany).
       </p>
-      <!-- <img src={bt} alt="Beskydské túry" /> -->
+    </div>
+    <div class="flex flex-col items-center">
+      <Image src={bystrouska} alt="Liška Bystrouška" />
+      <h4>Liška Bystrouška</h4>
       <p>
-        Za vytvořením aplikace stálo zejména to, že jsem si chtěla vytvořit svůj
-        ,,side project”, který bude komplexnější, co se týče použitých
-        technologií, a na kterém se zároveň naučím i něco nového. Delší dobu
-        jsem přemýšlela o čem by, aplikace měla být, nechtěla jsem aby to byla
-        nějaká hloupost, která skončí v šuplíku a nakonec jsem dostala tento
-        nápad.
+        Liška Bystrouška pracuje jako IT security manažerka a veškerý svůj
+        pracovní čas tráví za počítačem, na výlety chodí jen občas. Protože
+        nemá fyzičku jako Ruda, dělají jí radost spíše kratší trasy, kdy se
+        může po cestě i zastavit v nějaké horské chatě na dobré jídlo.
+        Bystrouška vlastní auto a veřejnou dopravou necestuje.
       </p>
-      <h3>
-        <a name="persony">Persony</a>
-      </h3>
-      <p>
-        Ve fázi příprav jsem si vytvořila dvě imaginární persony, které mají
-        potenciálně zastupovat nejširší skupiny návštěvníků webu.
-      </p>
-      <div class="flex flex-col items-center md:flex-row">
-        <div class="flex flex-col items-center md:first-child:mr-5 md:last-child:ml-5">
-          <!-- <img src={ruda} alt="Ruda Jelínek" /> -->
-          <h4>Ruda Jelínek</h4>
-          <p>
-            Ruda je mladý zkušený turista, který v Beskydech tráví skoro každý
-            víkend a preferuje delší a náročnější trasy. Nebaví ho turisticky
-            vytížená místa a na výlety jezdí veřejnou dopravou. Rád doma kuchtí
-            a většinou si na výlet připraví něco dobrého (nejčastěji pečené
-            kaštany).
-          </p>
-        </div>
-        <div class="flex flex-col items-center md:first-child:mr-5 md:last-child:ml-5">
-          <!-- <img src={bystrouska} alt="Liška Bystrouška" /> -->
-          <h4>Liška Bystrouška</h4>
-          <p>
-            Liška Bystrouška pracuje jako IT security manažerka a veškerý svůj
-            pracovní čas tráví za počítačem, na výlety chodí jen občas. Protože
-            nemá fyzičku jako Ruda, dělají jí radost spíše kratší trasy, kdy se
-            může po cestě i zastavit v nějaké horské chatě na dobré jídlo.
-            Bystrouška vlastní auto a veřejnou dopravou necestuje.
-          </p>
-        </div>
-      </div>
-      <h3>
-        <a name="design">Design</a>
-      </h3>
-      <!-- <img src={design} alt="Beskydské túry - design" /> -->
-      <p>
-        Když jsem přemýšlela o designu celé aplikace, měla jsem zhruba jasno v
-        základním rozdělení layoutu - navigace, záhlaví, obsah, zápatí. Co se
-        týče volby kategorií, nebylo moc o čem přemýšlet - homepage, stránka se
-        seznamem tras + detail trasy a stránka s informacemi o webu. Navrhla
-        jsem si tedy jednoduchý wireframe na papír, a následně i návrh v Adobe
-        XD, který se však ve finále oproti původnímu návrhu designově dost liší.
-        Za běhu vývoje jsem měnila design buttonů, dlaždic pro seznam tras,
-        apod.
-      </p>
-      <!-- <img src={screens} alt="Beskydské túry - stránky" /> -->
-      <p>
-        Jako hlavní fotku v zápatí jsem zvolila fotku, kterou jsem pořídila při
-        výletu na Lysou horu na podzim 2021. V detailu jednotlivých tras je pak
-        v záhlaví odpovídající fotka pro danou trasu.
-      </p>
-      <h3>
-        <a name="implementace">Technické zpracování</a>
-      </h3>
-      <!-- <img src={techStack} alt="Tech stack" /> -->
-      <h4>Frontend</h4>
-      <p>
-        Frontendová část aplikace je postavena na{" "}
-        <a href="https://reactjs.org" target="_blank">
-          ReactJS
-        </a>{" "}
-        +{" "}
-        <a href="https://www.typescriptlang.org/" target="_blank">
-          TypeScriptu
-        </a>{" "}
-        a mém oblíbeném frameworku{" "}
-        <a href="https://www.gatsbyjs.com/" target="_blank">
-          GatsbyJS
-        </a>
-        . Na tomto frameworku se mi líbí široká podpora balíčků a funkcí, pomocí
-        nichž je celá realizace jednodušší. Zároveň GatsbyJS podporuje
-        <a href="https://graphql.org/" target="_blank">
-          GraphQL
-        </a>
-        , který jsem využila pro načítání dat z CMS{" "}
-        <a href="https://strapi.io/" target="_blank">
-          Strapi
-        </a>{" "}
-        a pro načítání fotek z Instagramu.
-      </p>
-      <h5>Použité knihovny</h5>
-      <p>
-        Aplikace stojí zejména na knihovnách{" "}
-        <a href="https://styled-components.com/" target="_blank">
-          styled-components
-        </a>
-        ,{" "}
-        <a href="https://fontawesome.com/" target="_blank">
-          Font Awesome
-        </a>{" "}
-        pro ikonky nebo{" "}
-        <a href="https://github.com/flsy/react-mapycz" target="_blank">
-          react-mapy
-        </a>
-        , která přes API poskytuje podklady Mapy.cz a je pro tento projekt
-        stěžejní. S API Mapy.cz se pracuje skrze JavaScript a jelikož Beskydské
-        túry jsou postavené na Reactu, hledala jsem knihovnu, která do Reactu
-        balí původní Mapy.cz API.
-      </p>
-      <p>
-        Během
-        implementace knihovny react-mapycz do svého projektu jsem narazila na podstatný problém a to ten, že v této
-        knihovně nebyly obsaženy funkce pro dynamické plánovaní tras, které jsou
-        pro Beskydské túry nezbytné. Z tohoto důvodu jsem do této knihovny
-        přispěla dvěma pull requesty, prvním pro vykreslení dynamických tras,
-        druhým pro získání dat o naplánované trase - potřebovala jsem totiž
-        informace i délce trasy, převýšení, apod.
-        <br />
-        <br />
-        <ul>
-          <li>
-            <a
-              href="https://github.com/flsy/react-mapycz/pull/88"
-              target="_blank"
-            >
-              Pull Request #88
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://github.com/flsy/react-mapycz/pull/289"
-              target="_blank"
-            >
-              Pull Request #289
-            </a>
-          </li>
-        </ul>
-      </p>
-      <h5>Unit testy</h5>
-      <p>
-        Chtěla jsem si rozšířit znalosti v psaní unit testů a proto jsem do
-        projektu přidala několik testů pro otestování komponent a funkcí. Unit
-        testy jsem napsala v{" "}
-        <a href="https://jestjs.io/" target="_blank">
-          Jestu
-        </a>
-        . V první fázi projektu testy zdaleka nepokrývají vše, toto bych ráda v
-        budoucnu zlepšila.
-      </p>
-      <h4>Backend</h4>
-      <p>
-        Existuje celá řada CMS, které by šlo pro tento projekt použít. Já
-        nakonec zvolila CMS{" "}
-        <a href="https://strapi.io/" target="_blank">
-          Strapi
-        </a>
-        . Líbí se mi několik jeho vlastností - je open-source, relativně snadný
-        na implementaci a v dokumentaci je skvělý návod jak propojit Strapi s
-        GatsbyJS. Pro databázi využívám Postgres. Protože Strapi neumí v
-        kombinaci s Heroku dlouhodobě uchovávat média, propojila jsem podle{" "}
+    </div>
+  </div>
+  <h3>
+    <a name="design">Design</a>
+  </h3>
+  <Image src={design} alt="Beskydské túry - design" />
+  <p>
+    Když jsem přemýšlela o designu celé aplikace, měla jsem zhruba jasno v
+    základním rozdělení layoutu - navigace, záhlaví, obsah, zápatí. Co se
+    týče volby kategorií, nebylo moc o čem přemýšlet - homepage, stránka se
+    seznamem tras + detail trasy a stránka s informacemi o webu. Navrhla
+    jsem si tedy jednoduchý wireframe na papír, a následně i návrh v Adobe
+    XD, který se však ve finále oproti původnímu návrhu designově dost liší.
+    Za běhu vývoje jsem měnila design buttonů, dlaždic pro seznam tras,
+    apod.
+  </p>
+  <Image src={screens} alt="Beskydské túry - stránky" />
+  <p>
+    Jako hlavní fotku v zápatí jsem zvolila fotku, kterou jsem pořídila při
+    výletu na Lysou horu na podzim 2021. V detailu jednotlivých tras je pak
+    v záhlaví odpovídající fotka pro danou trasu.
+  </p>
+  <h3>
+    <a name="implementace">Technické zpracování</a>
+  </h3>
+  <Image src={techStack} alt="Tech stack" />
+  <h4>Frontend</h4>
+  <p>
+    Frontendová část aplikace je postavena na{" "}
+    <a href="https://reactjs.org" target="_blank">
+      ReactJS
+    </a>{" "}
+    +{" "}
+    <a href="https://www.typescriptlang.org/" target="_blank">
+      TypeScriptu
+    </a>{" "}
+    a mém oblíbeném frameworku{" "}
+    <a href="https://www.gatsbyjs.com/" target="_blank">
+      GatsbyJS
+    </a>
+    . Na tomto frameworku se mi líbí široká podpora balíčků a funkcí, pomocí
+    nichž je celá realizace jednodušší. Zároveň GatsbyJS podporuje
+    <a href="https://graphql.org/" target="_blank">
+      GraphQL
+    </a>
+    , který jsem využila pro načítání dat z CMS{" "}
+    <a href="https://strapi.io/" target="_blank">
+      Strapi
+    </a>{" "}
+    a pro načítání fotek z Instagramu.
+  </p>
+  <h5>Použité knihovny</h5>
+  <p>
+    Aplikace stojí zejména na knihovnách{" "}
+    <a href="https://styled-components.com/" target="_blank">
+      styled-components
+    </a>
+    ,{" "}
+    <a href="https://fontawesome.com/" target="_blank">
+      Font Awesome
+    </a>{" "}
+    pro ikonky nebo{" "}
+    <a href="https://github.com/flsy/react-mapycz" target="_blank">
+      react-mapy
+    </a>
+    , která přes API poskytuje podklady Mapy.cz a je pro tento projekt
+    stěžejní. S API Mapy.cz se pracuje skrze JavaScript a jelikož Beskydské
+    túry jsou postavené na Reactu, hledala jsem knihovnu, která do Reactu
+    balí původní Mapy.cz API.
+  </p>
+  <p>
+    Během
+    implementace knihovny react-mapycz do svého projektu jsem narazila na podstatný problém a to ten, že v této
+    knihovně nebyly obsaženy funkce pro dynamické plánovaní tras, které jsou
+    pro Beskydské túry nezbytné. Z tohoto důvodu jsem do této knihovny
+    přispěla dvěma pull requesty, prvním pro vykreslení dynamických tras,
+    druhým pro získání dat o naplánované trase - potřebovala jsem totiž
+    informace i délce trasy, převýšení, apod.
+    <br />
+    <br />
+    <ul>
+      <li>
         <a
-          href="https://strapi.io/blog/add-cloudinary-support-to-your-strapi-application"
+          href="https://github.com/flsy/react-mapycz/pull/88"
           target="_blank"
         >
-          tutoriálu
-        </a>{" "}
-        CMS s CDN službou{" "}
-        <a href="https://cloudinary.com/" target="_blank">
-          Cloudinary
+          Pull Request #88
         </a>
-        .
-      </p>
-      <h4>Hosting</h4>
-      <p>
-        Backend aplikace je deploynutý a běží na{" "}
-        <a href="https://heroku.com" target="_blank">
-          Heroku
-        </a>
-        . Pro frontend jsem zvolila platformu{" "}
-        <a href="https://netlify.com" target="_blank">
-          Netlify
-        </a>
-        .
-      </p>
-      <h4>Testování</h4>
-      <p>
-        V rámci projektu jsem implementovala i několik E2E testů pomocí nástroje{" "}
-        <a href="https://www.cypress.io/" target="_blank">
-          Cypress
-        </a>
-        . Stejně jako u unit testů, tyto testy zdaleka nepokrývají 100% celou
-        aplikaci, ale plánuji je rozšířit.
-      </p>
-      <h3>
-        <a name="ideas">Nápady pro další iterace</a>
-      </h3>
-      <p>
-        Na projektu je stále spousta věcí, které chci vylepšit. Původní plán
-        bylo udělat vše najednou a pak postupně přidávat a ladit drobnosti, ale
-        kontinuálně dostávám nové a nové nápady, proto nakonec projekt dělím do
-        částí, které nazývám iterace. První iterace je hotová, v dalších
-        iteracích se chci zaměřit hlavně na:
-      </p>
-      <ul>
-        <li>
-          Přidání dalších atributů k trase - dostupnost turistických chat,
-          jestli je trasa vhodná na pozorování východu/západu slunce, a podobně.
-        </li>
-        <li>
-          Filtrování a výběr tras podle atributů - vzdálenost, náročnost,
-          dostupnost (auto, bus, vlak), typ trasy (jestli se turista vrátí na
-          stejné místo, odkud vycházel nebo ne).
-        </li>
-        <li>Rozšířit unit testy v Jestu a E2E testy v Cypressu.</li>
-        <li>Přidat “lightbox” galerii pro detail trasy.</li>
-        <li>
-          Vyladit responzivní verzi. Responzivní verze funguje, ale chtěla bych
-          ji ještě více vylepšit.
-        </li>
-        <li>Velký code refactoring. Věřím, že kód lze lépe optimalizovat.</li>
-        <li>Pokročilé nastavení CI/CD.</li>
-        <li>
-          Nasazení a konfigurace{" "}
-          <a href="https://eslint.org/" target="_blank">
-            ESLint
-          </a>{" "}
-          a{" "}
-          <a href="https://www.npmjs.com/package/husky" target="_blank">
-            Husky
-          </a>
-          .
-        </li>
-        <li>
-          Odladit web z hlediska rychlosti načítání, neb výsledky z Google
-          PageSpeed Insights nejsou ideální.
-        </li>
-        <li>
-          A hlavně - získat feedback uživatelů a na jeho základě zlepšit UX/UI
-          aplikace.
-        </li>
-      </ul>
-      <h3>
-        <a name="conclusion">Shrnutí</a>
-      </h3>
-      <p>
-        Práce na tomto projektů mě baví. S některými nástroji jako je GatsbyJS,
-        styled-components, Cypress, apod. mám zkušenosti již z dřívějška, s
-        jinými nástroji jsem se v minulosti setkala jen okrajově (např. Heroku
-        nebo Strapi) a díky Beskydským túrám jsem si je mohla ,,ohmatat" více.
-        Během realizace jsem se klasicky častokrát zasekla na několika
-        problémech, ale i ty se mi povedly relativně dobře vyřešit, někdy to
-        trvalo sice déle, ale povedlo se.
-      </p>
-      <p>
-        Úspěšně se mi tedy podařilo postavit webovou aplikaci, která je funkční,
-        frontend postavený na GatsbyJS komunikuje přes API s backendem, na
-        kterém běží CMS a databáze.
-      </p>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-evenly",
-          gap: '1rem',
-          marginBottom: "2rem",
-        }}
-      >
-        <a href="https://beskydsketury.cz" target="_blank">
-          Web Beskydské túry
-        </a>{" "}
+      </li>
+      <li>
         <a
-          href="https://github.com/sarkaaa/beskydske-tury"
+          href="https://github.com/flsy/react-mapycz/pull/289"
           target="_blank"
         >
-          Kód na Githubu
+          Pull Request #289
+        </a>
+      </li>
+    </ul>
+  </p>
+  <h5>Unit testy</h5>
+  <p>
+    Chtěla jsem si rozšířit znalosti v psaní unit testů a proto jsem do
+    projektu přidala několik testů pro otestování komponent a funkcí. Unit
+    testy jsem napsala v{" "}
+    <a href="https://jestjs.io/" target="_blank">
+      Jestu
+    </a>
+    . V první fázi projektu testy zdaleka nepokrývají vše, toto bych ráda v
+    budoucnu zlepšila.
+  </p>
+  <h4>Backend</h4>
+  <p>
+    Existuje celá řada CMS, které by šlo pro tento projekt použít. Já
+    nakonec zvolila CMS{" "}
+    <a href="https://strapi.io/" target="_blank">
+      Strapi
+    </a>
+    . Líbí se mi několik jeho vlastností - je open-source, relativně snadný
+    na implementaci a v dokumentaci je skvělý návod jak propojit Strapi s
+    GatsbyJS. Pro databázi využívám Postgres. Protože Strapi neumí v
+    kombinaci s Heroku dlouhodobě uchovávat média, propojila jsem podle{" "}
+    <a
+      href="https://strapi.io/blog/add-cloudinary-support-to-your-strapi-application"
+      target="_blank"
+    >
+      tutoriálu
+    </a>{" "}
+    CMS s CDN službou{" "}
+    <a href="https://cloudinary.com/" target="_blank">
+      Cloudinary
+    </a>
+    .
+  </p>
+  <h4>Hosting</h4>
+  <p>
+    Backend aplikace je deploynutý a běží na{" "}
+    <a href="https://heroku.com" target="_blank">
+      Heroku
+    </a>
+    . Pro frontend jsem zvolila platformu{" "}
+    <a href="https://netlify.com" target="_blank">
+      Netlify
+    </a>
+    .
+  </p>
+  <h4>Testování</h4>
+  <p>
+    V rámci projektu jsem implementovala i několik E2E testů pomocí nástroje{" "}
+    <a href="https://www.cypress.io/" target="_blank">
+      Cypress
+    </a>
+    . Stejně jako u unit testů, tyto testy zdaleka nepokrývají 100% celou
+    aplikaci, ale plánuji je rozšířit.
+  </p>
+  <h3>
+    <a name="ideas">Nápady pro další iterace</a>
+  </h3>
+  <p>
+    Na projektu je stále spousta věcí, které chci vylepšit. Původní plán
+    bylo udělat vše najednou a pak postupně přidávat a ladit drobnosti, ale
+    kontinuálně dostávám nové a nové nápady, proto nakonec projekt dělím do
+    částí, které nazývám iterace. První iterace je hotová, v dalších
+    iteracích se chci zaměřit hlavně na:
+  </p>
+  <ul>
+    <li>
+      Přidání dalších atributů k trase - dostupnost turistických chat,
+      jestli je trasa vhodná na pozorování východu/západu slunce, a podobně.
+    </li>
+    <li>
+      Filtrování a výběr tras podle atributů - vzdálenost, náročnost,
+      dostupnost (auto, bus, vlak), typ trasy (jestli se turista vrátí na
+      stejné místo, odkud vycházel nebo ne).
+    </li>
+    <li>Rozšířit unit testy v Jestu a E2E testy v Cypressu.</li>
+    <li>Přidat “lightbox” galerii pro detail trasy.</li>
+    <li>
+      Vyladit responzivní verzi. Responzivní verze funguje, ale chtěla bych
+      ji ještě více vylepšit.
+    </li>
+    <li>Velký code refactoring. Věřím, že kód lze lépe optimalizovat.</li>
+    <li>Pokročilé nastavení CI/CD.</li>
+    <li>
+      Nasazení a konfigurace{" "}
+      <a href="https://eslint.org/" target="_blank">
+        ESLint
+      </a>{" "}
+      a{" "}
+      <a href="https://www.npmjs.com/package/husky" target="_blank">
+        Husky
       </a>
-      </div>
-  </section>
+      .
+    </li>
+    <li>
+      Odladit web z hlediska rychlosti načítání, neb výsledky z Google
+      PageSpeed Insights nejsou ideální.
+    </li>
+    <li>
+      A hlavně - získat feedback uživatelů a na jeho základě zlepšit UX/UI
+      aplikace.
+    </li>
+  </ul>
+  <h3>
+    <a name="conclusion">Shrnutí</a>
+  </h3>
+  <p>
+    Práce na tomto projektů mě baví. S některými nástroji jako je GatsbyJS,
+    styled-components, Cypress, apod. mám zkušenosti již z dřívějška, s
+    jinými nástroji jsem se v minulosti setkala jen okrajově (např. Heroku
+    nebo Strapi) a díky Beskydským túrám jsem si je mohla ,,ohmatat" více.
+    Během realizace jsem se klasicky častokrát zasekla na několika
+    problémech, ale i ty se mi povedly relativně dobře vyřešit, někdy to
+    trvalo sice déle, ale povedlo se.
+  </p>
+  <p>
+    Úspěšně se mi tedy podařilo postavit webovou aplikaci, která je funkční,
+    frontend postavený na GatsbyJS komunikuje přes API s backendem, na
+    kterém běží CMS a databáze.
+  </p>
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "space-evenly",
+      gap: '1rem',
+      marginBottom: "2rem",
+    }}
+  >
+    <a href="https://beskydsketury.cz" target="_blank">
+      Web Beskydské túry
+    </a>{" "}
+    <a
+      href="https://github.com/sarkaaa/beskydske-tury"
+      target="_blank"
+    >
+      Kód na Githubu
+    </a>
+  </div>
 </Layout>

@@ -6,6 +6,6 @@ import SkipLink from './SkipLink.astro';
 <header class="md:w-2xl lg:w-3xl mx-auto relative">
   <SkipLink />
   <div class="flex justify-center">
-    <Navigation client:load />
+    <Navigation client:load currentPath={Astro.url.pathname} />
   </div>
 </header>
