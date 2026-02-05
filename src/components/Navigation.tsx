@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
-import { Moon, Sun } from 'react-feather';
+import { Moon, Sun, Type } from 'react-feather';
 
 const PAGES = [
   {
@@ -48,11 +48,13 @@ function useScrolled(threshold: number = 50) {
 
 export default function Navigation() {
   const [theme, setTheme] = useState("light");
+  const [fontSize, setFontSize] = useState("large");
   const isScrolled = useScrolled(75);
 
   useEffect(() => {
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const initialTheme = localStorage.getItem("theme") || (systemPrefersDark ? 'dark' : 'light');
+    // const initialFontSize = localStorage.getItem("fontSize") || "small";
     
     setTheme(initialTheme);
     
@@ -67,7 +69,17 @@ export default function Navigation() {
     if (!localStorage.getItem("theme")) {
       localStorage.setItem("theme", initialTheme);
     }
+
+    if (!localStorage.getItem("fontSize")) {
+      localStorage.setItem("fontSize", "large");
+    }
   }, []);
+
+  const handleTypeSwitch = () => {
+    const newFontSize = fontSize === "large" ? "small" : "large";
+    setFontSize(newFontSize);
+    localStorage.setItem("fontSize", newFontSize);
+  };
 
   const handleModeSwitch = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
@@ -114,6 +126,16 @@ export default function Navigation() {
             {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
           </button>
         </li>
+        {/* <li>
+          <button 
+            onClick={handleTypeSwitch}
+            className="cursor-pointer p-1 rounded-md bg-linear-90 hover:from-red-gradient hover:to-purple-gradient dark:hover:from-dark-blue-gradient dark:hover:to-dark-purple-gradient motion-safe:transition-colors dark:text-light"
+            aria-label="Toggle font size"
+            id="type-selector"
+          >
+            <Type />
+          </button>
+        </li> */}
       </ul>
     </nav>
   );
