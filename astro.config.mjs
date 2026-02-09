@@ -10,11 +10,10 @@ import netlify from '@astrojs/netlify';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://pandacode.cz',
   integrations: [react(), mdx()],
-
   vite: {
     plugins: [tailwindcss()]
   },
-
   adapter: netlify()
 });
