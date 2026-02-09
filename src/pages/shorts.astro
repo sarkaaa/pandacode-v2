@@ -1,0 +1,20 @@
+---
+import ShortTile from '../components/ShortTile.astro';
+import Layout from '../layouts/Layout.astro';
+const allShorts = Object.values(import.meta.glob('./shorts/*.md', { eager: true }));
+---
+
+<Layout>
+  <section id="shorts">
+    <h1>Shorts</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-4">
+      {
+        allShorts?.map((short: any) => (
+          <Fragment key={short.frontmatter.title}>
+            <ShortTile url={short.url} {...short.frontmatter} />
+          </Fragment>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

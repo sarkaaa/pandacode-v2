@@ -1,0 +1,121 @@
+---
+import { Image } from 'astro:assets';
+import Layout from "../layouts/Layout.astro";
+import SocialSites from "../components/SocialSites";
+import ShortTile from "../components/ShortTile.astro";
+import ProjectTile from "../components/ProjectTile.astro";
+import BlogPosts from "../components/BlogPosts";
+import { PROJECTS } from './projects.astro';
+const sarkaAvatar = "/images/sarkaavatar1.png";
+const sarkaAvatar2 = "/images/sarkaavatar2.png";
+const sarka = '/images/sarka.png';
+const pandacode = '/images/pandacodelogo.svg?raw';
+
+const allShorts = Object.values(import.meta.glob('./shorts/*.md', { eager: true }));
+const allProjects = PROJECTS;
+---
+
+<Layout>
+  <section id="hero">
+    <h1>
+      <span
+        class="font-roboto text-4xl md:text-5xl text-blue-400 dark:text-blue-100"
+        >Panda{`<`}<span class="text-red-400 dark:text-red-300">code</span>{
+          `/>`
+        }</span
+      >
+      <span class="sr-only">Welcome on Pandacode.cz</span>
+    </h1>
+    <div class="flex items-center gap-6 flex-col sm:items-start sm:flex-row">
+      <div class="flex-3">
+        <p>
+          Welcome to my website! 🚀 Pandacode.cz is my space where I&nbsp;wanna share my&nbsp;experiments and thoughts.
+          Feel free to look around and explore my projects, blog posts, and shorts.&nbsp;✏️
+        </p>
+        <p>
+          Any questions or feedback? <a href="mailto:chwastkova.s@gmail.com">Drop me a&nbsp;line</a>.
+        </p>
+      </div>
+      <div class="flex-1">
+        <Image class="svg-stroke aspect-square object-contain w-3/4 mx-auto" src={pandacode} alt="Pandacode logo." width={100} height={100} />
+      </div>
+    </div>
+  </section>
+  <section id="about-me">
+    <h2>About me</h2>
+    <div class="flex gap-6 items-start flex-col sm:flex-row">
+      <div class="flex-1 relative h-auto min-h-[210px] w-full [&>img]:transition-transform [&>img]:duration-300 hover:[&>img:nth-child(1)]:translate-x-10 hover:[&>img:nth-child(1)]:translate-y-10 hover:[&>.img-avatar]:translate-x-0 hover:[&>.img-avatar]:translate-y-0 hover:[&>img:nth-child(1)]:z-20 hover:[&>.img-avatar]:z-10">
+        <Image class="absolute transform translate-x-0 translate-y-0 rounded-sm aspect-square object-cover z-10" src={sarka} alt="Photo of me." width={160} height={160} />
+        <Image class="img-avatar dark:hidden absolute transform translate-x-10 translate-y-10 rounded-sm aspect-square object-cover z-20" src={sarkaAvatar} alt="Photo of me." width={160} height={160} />
+        <Image class="img-avatar dark:block hidden absolute transform translate-x-10 translate-y-10 rounded-sm aspect-square object-cover z-20" src={sarkaAvatar2} alt="Photo of me." width={160} height={160} />
+      </div>
+      <div class="flex-2">
+        <div>
+          <p>
+            Hi, I'm <strong>Šárka</strong>. 👋 My background spans frontend development and QA, and I like combining creativity with a technical skills.
+            Besides that, you'll probably find me exploring new
+            places ✈️ or going for a&nbsp;run or a&nbsp;walk/hike to clear my
+            head. 🏃‍♀️ And I like cats. 🐱
+          </p>
+        </div>
+        <div class="flex gap-4 mt-6">
+          <SocialSites />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="latest-activity">
+    <h2>Latest activity</h2>
+    <div class="mb-12">
+      <h3>Projects</h3>
+      <div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-4">
+          {
+            allProjects?.map((project: any, index: number) => {
+              if (index < 2) {
+                return (
+                  <Fragment key={project.name}>
+                    <ProjectTile index={index} url={project.url} {...project} />
+                  </Fragment>
+                );
+              }
+            })
+          }
+        </div>
+        <!-- <div class="mt-6 flex justify-end"><a href="/projects">Check more projects</a></div> -->
+      </div>
+    </div>
+    <div class="mb-12">
+      <h3>Blog</h3>
+      <div>
+        <div class="flex flex-wrap gap-4 md:gap-4 flex-col sm:flex-row">
+          <BlogPosts maxPosts={2} client:load />
+        </div>
+        <div class="mt-6 flex justify-end">
+          <a href="/blog">Check more blogposts</a>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12">
+      <h3>Shorts</h3>
+      <div class="block">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-4">
+          {
+            allShorts?.map((short: any, index: number) => {
+              if (index < 2) {
+                return (
+                  <Fragment key={short.frontmatter.title}>
+                    <ShortTile url={short.url} {...short.frontmatter} />
+                  </Fragment>
+                );
+              }
+            })
+          }
+        </div>
+        <div class="mt-6 flex justify-end">
+          <a href="/shorts">Check more shorts</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

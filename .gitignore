@@ -22,3 +22,12 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# others
+.vscode/
+.netlify/*
+
+#cache
+cache/
+yarn.lock
+package-lock.json

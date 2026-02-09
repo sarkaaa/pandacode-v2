@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BlogPosts from "../components/BlogPosts";
+
+---
+
+<Layout>
+  <section id="blog">
+    <h1>Blog</h1>
+      <BlogPosts client:load />
+  </section>
+</Layout>

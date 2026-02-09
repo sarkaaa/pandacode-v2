@@ -1,0 +1,36 @@
+---
+import ProjectTile from '../components/ProjectTile.astro';
+import Layout from '../layouts/Layout.astro';
+// const allProjects = Object.values(import.meta.glob('./projects/*.md', { eager: true }));
+
+export const PROJECTS = [
+  {
+    name: 'PaperPrint Calendar',
+    description: 'Print your weekly calendar.',
+    labels: ['NextJS', 'Playwright', 'Jest', 'TailwindCSS'],
+    url: 'https://paperprint-calendar.vercel.app/',
+  },
+  {
+    name: 'Beskydské túry [CZ]',
+    description: 'Go for a hike!',
+    labels: ['GatsbyJS', 'Strapi', 'StyledCSS', 'Cypress'],
+    url: './projects/beskydske-tury/',
+  },
+];
+
+---
+
+<Layout>
+  <section id="projects">
+    <h1>Projects</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {
+        PROJECTS?.map((project: any, index) => (
+          <Fragment key={project.name}>
+            <ProjectTile index={index} url={project.url} {...project} />
+          </Fragment>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

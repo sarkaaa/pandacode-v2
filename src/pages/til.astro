@@ -1,0 +1,90 @@
+---
+import { v4 as uuidv4 } from 'uuid';
+import Layout from '../layouts/Layout.astro';
+
+const posts = await Astro.glob('./til/*.md');
+
+const allTodayILearned = await Promise.all(
+  posts.map(async (post) => {
+    const raw = await post.rawContent();
+
+    // Extract H2/H3 headings
+    let headings = [] as Array<{ depth: number; text: string }>;
+    try {
+      const maybeGetHeadings = (post as any).getHeadings;
+      if (typeof maybeGetHeadings === 'function') {
+        const extracted = await maybeGetHeadings.call(post);
+        headings = (extracted || [])
+          .filter((h: any) => h.depth === 2 || h.depth === 3)
+          .map((h: any) => ({ depth: h.depth, text: h.text }));
+      } else {
+        let inFence = false;
+        headings = raw.split('\n').reduce<Array<{ depth: number; text: string }>>((acc, line) => {
+          if (line.trim().startsWith('```')) {
+            inFence = !inFence;
+            return acc;
+          }
+          if (inFence) return acc;
+          const match = line.match(/^(#{2,3})\s+(.+?)\s*$/);
+          if (!match) return acc;
+          const depth = match[1].length;
+          const textRaw = match[2]
+            .replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1')
+            .replace(/[*_`]/g, '')
+            .trim();
+          if (depth === 2 || depth === 3) acc.push({ depth, text: textRaw });
+          return acc;
+        }, []);
+      }
+    } catch {
+      headings = [];
+    }
+    return {
+      url: post.url,
+      frontmatter: post.frontmatter,
+      headings,
+    };
+  })
+);
+
+---
+
+<Layout>
+  <section id="til">
+    <h1>Today I learned</h1>
+    <div class="relative">
+      {
+        allTodayILearned.map((til: any, index: number) => (
+          <Fragment key={til.url}>
+            <div class="group">
+              <a href={til.url} class="block hover:shadow-none shadow-none inset-shadow-none hover:inset-shadow-none focus:bg-transparent hover:bg-transparent focus:[&_.short-header-underline]:w-full after:hidden hover:after:hidden focus:after:hidden">
+                <div class="flex flex-col items-start mb-2">
+                  <span class="flex flex-col text-xl  text-black-400 dark:text-light">{til.frontmatter.title}
+                    <span class="short-header-underline h-[4px] w-10 motion-safe:transition-all motion-safe:duration-300 motion-safe:ease-in-out group-focus:w-full group-hover:visible group-hover:w-full bg-linear-90 from-blue-gradient to-green-gradient"></span>
+                  </span>
+                </div>
+                <div class="text-sm text-black-400 dark:text-light whitespace-pre-line">
+                  {til.preview}
+                </div>
+                {til.headings && til.headings.length > 0 && (
+                  <ul class="mt-2 text-sm text-black-400 dark:text-light list-disc pl-5">
+                    {til.headings.map(({ text, depth }: { text: string; depth: number }, index: number) => (
+                      <Fragment key={uuidv4() + index}>
+                        <li class={depth === 3 ? 'ml-4' : ''}>{text}</li>
+                      </Fragment>
+                    ))}
+                  </ul>
+                )}
+              </a>
+          </div>
+          {
+            index < allTodayILearned.length - 1 && (
+              <hr class="dark:border-light-blue-gradient border-light-purple-gradient my-8" />
+            )
+          }
+          </Fragment>
+        ))
+      }
+    </div>
+  </section>
+</Layout>
