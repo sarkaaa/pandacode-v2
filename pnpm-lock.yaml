@@ -12,7 +12,7 @@ importers:
         specifier: ^4.3.5
         version: 4.3.13(astro@5.17.1(@netlify/blobs@10.5.0)(@types/node@24.10.11)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.57.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2))
       '@astrojs/netlify':
-        specifier: ^6.1.0
+        specifier: ^6.6.4
         version: 6.6.4(@netlify/api@14.0.14)(@types/node@24.10.11)(astro@5.17.1(@netlify/blobs@10.5.0)(@types/node@24.10.11)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.57.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2))(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.57.1)(tsx@4.21.0)(yaml@2.8.2)
       '@astrojs/react':
         specifier: ^4.2.0
