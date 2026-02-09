@@ -1,10 +1,10 @@
 import axios from "axios";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useCallback, useEffect, useState } from "react";
 import BlogTile from "./BlogTile.tsx";
 
 const BlogPosts = ({ maxPosts = null }: { maxPosts?: number | null }) => {
 	const [posts, setPosts] = useState([]);
-	const getPostData = () => {
+	const getPostData = useCallback(() => {
 		axios
 			.get(
 				"https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@sarkachwastkova",
@@ -15,11 +15,11 @@ const BlogPosts = ({ maxPosts = null }: { maxPosts?: number | null }) => {
 			.catch((error) => {
 				console.error("Error fetching blog posts:", error);
 			});
-	};
+	}, []);
 
 	useEffect(() => {
 		getPostData();
-	});
+	}, [getPostData]);
 
 	return (
 		<div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-4">
