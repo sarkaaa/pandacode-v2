@@ -7,7 +7,7 @@ const BlogPosts = ({ maxPosts = null }: { maxPosts?: number | null }) => {
 	const getPostData = useCallback(() => {
 		axios
 			.get(
-				"https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@sarkachwastkova",
+				"https://api.rss2json.com/v1/api.json?rss_url=https://sarkachwastkova.medium.com/feed",
 			)
 			.then((res) => {
 				setPosts(res.data.items);
