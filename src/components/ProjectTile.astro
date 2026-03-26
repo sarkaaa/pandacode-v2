@@ -30,21 +30,21 @@ const bgVariants = [
   target={url.includes('https://') ? '_blank' : '_self'}
   rel={url.includes('https://') ? 'noopener noreferrer' : ''}
 >
-  <div class="blog-tile bg-primary h-full py-10 relative z-10 flex flex-1 justify-center gap-5 rounded-sm">
-    <div class="p-4">
+  <div class="blog-tile bg-primary h-full pt-10 pb-6 relative z-10 flex flex-1 justify-center gap-5 rounded-sm">
+    <div class="py-4">
       <h3 class="text-center text-2xl group-focus:underline text-black-400">{name}</h3>
       <div class="flex gap-2 justify-center items-center"></div>
       <div class="flex justify-center flex-col gap-2 items-center">
         <span>{description}</span>
-        <div class="flex flex-wrap justify-center gap-4 text-center font-semibold">
+        <div class="flex flex-wrap justify-center mt-3 gap-2 text-center">
           {labels?.map((label: string) => (
             <Fragment key={label}>
-              <span>{label}</span>
+              <span class={cx('bg-gray-100 rounded-sm px-2 py-1 text-xs font-courier')}>{label}</span>
             </Fragment>
           ))}
         </div>
       </div>
     </div>
   </div>
-  <div class={cx("blog-tile-gradient absolute block top-0 bottom-0 left-0 right-0 bg-linear-170 rounded-sm", bgVariants[index])}></div>
+  <div class={cx("blog-tile-gradient absolute block top-0 bottom-0 left-0 right-0 bg-linear-160 rounded-sm", bgVariants[index])}></div>
 </a>
