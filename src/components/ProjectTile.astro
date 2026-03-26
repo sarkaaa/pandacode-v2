@@ -2,19 +2,19 @@
 import cx from "clsx";
 
 interface Props {
-  name: string;
-  description: string;
-  labels: string[];
-  url: string;
-  index: number;
+	name: string;
+	description: string;
+	labels: string[];
+	url: string;
+	index: number;
 }
 
 const { name, description, labels, url, index } = Astro.props;
 
 const bgVariants = [
-  "from-light-blue-gradient to-light-purple-gradient",
-  "from-red-gradient to-purple-gradient",
-  "from-blue-gradient to-green-gradient",
+	"from-light-blue-gradient to-light-purple-gradient",
+	"from-red-gradient to-purple-gradient",
+	"from-blue-gradient to-green-gradient",
 ];
 ---
 
@@ -37,7 +37,11 @@ const bgVariants = [
       <div class="flex justify-center flex-col gap-2 items-center">
         <span>{description}</span>
         <div class="flex flex-wrap justify-center gap-4 text-center font-semibold">
-          {labels?.map((label) => <span>{label}</span>)}
+          {labels?.map((label: string) => (
+            <Fragment key={label}>
+              <span>{label}</span>
+            </Fragment>
+          ))}
         </div>
       </div>
     </div>
