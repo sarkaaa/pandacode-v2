@@ -1,7 +1,10 @@
 ---
-import ShortTile from '../components/ShortTile.astro';
-import Layout from '../layouts/Layout.astro';
-const allShorts = Object.values(import.meta.glob('./shorts/*.md', { eager: true }));
+import ShortTile from "../components/ShortTile.astro";
+import Layout from "../layouts/Layout.astro";
+
+const allShorts = Object.values(
+	import.meta.glob("./shorts/*.md", { eager: true }),
+);
 ---
 
 <Layout>

@@ -1,17 +1,20 @@
 ---
-import { Image } from 'astro:assets';
-import Layout from "../layouts/Layout.astro";
-import SocialSites from "../components/SocialSites";
-import ShortTile from "../components/ShortTile.astro";
-import ProjectTile from "../components/ProjectTile.astro";
+import { Image } from "astro:assets";
 import BlogPosts from "../components/BlogPosts";
-import { PROJECTS } from './projects.astro';
+import ProjectTile from "../components/ProjectTile.astro";
+import ShortTile from "../components/ShortTile.astro";
+import SocialSites from "../components/SocialSites";
+import Layout from "../layouts/Layout.astro";
+import { PROJECTS } from "./projects.astro";
+
 const sarkaAvatar = "/images/sarkaavatar1.png";
 const sarkaAvatar2 = "/images/sarkaavatar2.png";
-const sarka = '/images/sarka.png';
-const pandacode = '/images/pandacodelogo.svg?raw';
+const sarka = "/images/sarka.png";
+const pandacode = "/images/pandacodelogo.svg?raw";
 
-const allShorts = Object.values(import.meta.glob('./shorts/*.md', { eager: true }));
+const allShorts = Object.values(
+	import.meta.glob("./shorts/*.md", { eager: true }),
+);
 const allProjects = PROJECTS;
 ---
 

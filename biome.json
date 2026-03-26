@@ -6,23 +6,30 @@
 		"useIgnoreFile": true
 	},
 	"files": {
-		"includes": ["src/**/*.ts", "src/**/*.tsx"],
+		"includes": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.astro"],
 		"ignoreUnknown": false
 	},
 	"formatter": {
 		"enabled": true,
-		"includes": ["src/**/*.ts", "src/**/*.tsx"],
+		"includes": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.astro"],
 		"indentStyle": "tab"
 	},
 	"linter": {
 		"enabled": true,
 		"rules": {
 			"recommended": true,
+			"a11y": {
+				"noRedundantAlt": "error",
+				"useAltText": "error",
+				"useButtonType": "error"
+			},
 			"nursery": {
 				"useSortedClasses": "error"
 			},
 			"correctness": {
-				"noUnusedImports": "error"
+				"noUnusedImports": "error",
+				"noUnusedVariables": "error",
+				"useJsxKeyInIterable": "error"
 			}
 		}
 	},
@@ -31,6 +38,19 @@
 			"quoteStyle": "double"
 		}
 	},
+	"overrides": [
+		{
+			"includes": ["**/*.astro"],
+			"linter": {
+				"rules": {
+					"correctness": {
+						"noUnusedVariables": "off",
+						"noUnusedImports": "off"
+					}
+				}
+			}
+		}
+	],
 	"assist": {
 		"enabled": true,
 		"actions": {

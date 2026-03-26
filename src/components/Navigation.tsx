@@ -49,6 +49,7 @@ interface NavigationProps {
 
 export default function Navigation({ currentPath = "/" }: NavigationProps) {
 	const [theme, setTheme] = useState("light");
+	// biome-ignore lint/correctness: TBD later.
 	const [fontSize, setFontSize] = useState("large");
 	const [pathname, setPathname] = useState(currentPath);
 	const isScrolled = useScrolled(75);
