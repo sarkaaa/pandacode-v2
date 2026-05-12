@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/Layout.astro
 title: 'Multiple git config files'
-pubDate: 2022-07-01
+pubDate: 2026-02-01
 description: "Separate your Git configs for work and personal using multiple config files."
 author: 'Šárka Chwastková'
 tags: ["git", "configuration"]
