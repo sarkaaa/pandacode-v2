@@ -14,7 +14,7 @@ const pandacode = "/images/pandacodelogo.svg?raw";
 
 const allShorts = Object.values(
 	import.meta.glob("./shorts/*.md", { eager: true }),
-);
+).reverse();
 const allProjects = PROJECTS;
 ---
 

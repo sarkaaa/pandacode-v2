@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 
 const allShorts = Object.values(
 	import.meta.glob("./shorts/*.md", { eager: true }),
-);
+).reverse();
 ---
 
 <Layout>
